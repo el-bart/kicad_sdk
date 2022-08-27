@@ -15,3 +15,11 @@ _autosave-*
 *.csv
 
 build/*
+
+# vim
+*.swp
+*.swo
+
+# git
+*.rej
+*.orig
