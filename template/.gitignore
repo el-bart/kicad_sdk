@@ -5,6 +5,7 @@
 fp-info-cache
 _autosave-*
 *.bck
+*-backups
 
 # gerber files
 *.gbr

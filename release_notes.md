@@ -1,7 +1,7 @@
 # release notes
 
 ## dev
-
+* `*-backups` are now in `.gitignore`
 
 ## v1.0
 * Docker-based SDK definition, for stability.
