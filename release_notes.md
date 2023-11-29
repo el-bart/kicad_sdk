@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* `./make` wrapper now uses `./sdk` that can also start KiCad GUI
 * STEP -> STL conversion is now done using PrusaSlicer, instead of FreeCAD
 * switched to use KiCad 7.0.8
 * added `export_template` script, for eas of integration
