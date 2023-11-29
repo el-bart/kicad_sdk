@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY \
   generate_bom \
   generate_stl \
+  list_cu_layers \
   /usr/local/bin/
 
 ENV HOME=/tmp/
