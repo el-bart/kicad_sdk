@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* added `export_template` script, for eas of integration
 * `*-backups` are now in `.gitignore`
 
 ## v1.0
