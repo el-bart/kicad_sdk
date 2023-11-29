@@ -1,18 +1,15 @@
 FROM debian:12
 RUN apt-get update && apt-get dist-upgrade -y
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    make \
-    gzip \
-    tar \
-    wget ca-certificates openssl \
-    zip
-
 # debian 12 has KiCad 6.0 by default - installing 7.0 from newer rc instead
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 #    kicad \
 #    kicad-packages3d
-RUN cd /tmp/ && \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      wget \
+      ca-certificates \
+      openssl && \
+    cd /tmp/ && \
     wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad_7.0.8+dfsg-1~bpo12+1_amd64.deb" && \
     wget "https://ftp.debian.org/debian/pool/main/k/kicad/kicad-libraries_7.0.8+dfsg-1_all.deb" && \
     wget "https://ftp.debian.org/debian/pool/main/k/kicad-footprints/kicad-footprints_7.0.8-1~bpo12+1_all.deb" && \
@@ -24,6 +21,13 @@ RUN cd /tmp/ && \
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     prusa-slicer
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fakeroot \
+    make \
+    gzip \
+    tar \
+    zip
 
 COPY \
   generate_bom \
