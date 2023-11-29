@@ -65,4 +65,4 @@ $(OUT_DIR)/bom.csv: $(PCB)
 
 .PHONY: clean
 clean:
-	rm -rfv build/
+	rm -rfv "$(OUT_DIR)
