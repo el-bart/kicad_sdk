@@ -65,15 +65,22 @@ $(OUT_DIR)/bom.csv: $(PCB)
 
 
 .PHONY: graphics
+graphics: $(GRAPHICS_DIR)/sch.pdf
 graphics: $(GRAPHICS_DIR)/sch.svg
-# TODO: pdfs
 graphics: $(GRAPHICS_DIR)/pcb.done
+
+$(GRAPHICS_DIR)/sch.pdf: Makefile
+$(GRAPHICS_DIR)/sch.pdf: $(SCH)
+	$(SILENT)echo "SCH PDF $<"
+	$(SILENT)mkdir -p "$(GRAPHICS_DIR)"
+	$(SILENT)print_on_error kicad-cli sch export pdf --no-background-color --exclude-drawing-sheet --output "$@" "$<"
 
 $(GRAPHICS_DIR)/sch.svg: Makefile
 $(GRAPHICS_DIR)/sch.svg: $(SCH)
 	$(SILENT)echo "SCH SVG $<"
 	$(SILENT)mkdir -p "$(GRAPHICS_DIR)"
 	$(SILENT)print_on_error kicad-cli sch export svg --no-background-color --exclude-drawing-sheet --output "$(GRAPHICS_DIR)" "$<"
+	$(SILENT)mv "$(GRAPHICS_DIR)/$(shell basename "$<" | sed 's/\.kicad_sch//').svg" "$@"
 
 $(GRAPHICS_DIR)/pcb.done: Makefile
 $(GRAPHICS_DIR)/pcb.done: /usr/local/bin/list_cu_layers
@@ -85,6 +92,7 @@ $(GRAPHICS_DIR)/pcb.done: $(PCB)
 				print_on_error \
 					kicad-cli pcb export svg -l "$$l" --output "$(GRAPHICS_DIR)/pcb_$$l.svg" --exclude-drawing-sheet "$<" ; \
 			done
+	$(SILENT)touch "$@"
 
 .PHONY: clean
 clean:
