@@ -31,7 +31,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY \
   generate_bom \
-  generate_gerber \
   generate_stl \
   /usr/local/bin/
 

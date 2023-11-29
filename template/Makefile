@@ -32,11 +32,10 @@ $(GERBER_DIR).zip: $(GERBER_DIR)/version.txt
 	$(SILENT)cd "$(dir $@)" && fakeroot zip -r -q "$(notdir $@)" "gerber/"
 
 $(GERBER_DIR)/version.txt: Makefile
-$(GERBER_DIR)/version.txt: /usr/local/bin/generate_gerber
 $(GERBER_DIR)/version.txt: $(PCB)
 	$(SILENT)echo "GERBER $(GERBER_DIR)"
 	$(SILENT)mkdir -p "$(GERBER_DIR)"
-	$(SILENT)generate_gerber "$<" "$(GERBER_DIR)"
+	$(SILENT)kicad-cli pcb export gerbers --output "$(GERBER_DIR)" "$<" > "$(GERBER_DIR).log" 2>&1 || { cat "$(GERBER_DIR).log" ; exit 42 ; }
 	$(SILENT)md5sum "$<" > "$(GERBER_DIR)/version.txt"
 
 
