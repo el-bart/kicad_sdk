@@ -1,6 +1,8 @@
 # release notes
 
 ## dev
+
+## v2.0
 * switched to use KiCad 7.0.8
 * moving most of the heavy-lifting to `kicad-cli` in the backend
 * added `./kicad` helper to start kicad from SDK, in GUI mode
