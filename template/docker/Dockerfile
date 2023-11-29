@@ -35,5 +35,3 @@ COPY \
   /usr/local/bin/
 
 ENV HOME=/tmp/
-RUN mkdir -p "/tmp/.config/"
-COPY kicad /tmp/.config/kicad
