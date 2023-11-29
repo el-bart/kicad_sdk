@@ -34,4 +34,3 @@ COPY \
 ENV HOME=/tmp/
 RUN mkdir -p "/tmp/.config/"
 COPY kicad /tmp/.config/kicad
-RUN chmod a+rw -R "/tmp/.config/"
