@@ -24,7 +24,7 @@ board = pcbnew.LoadBoard(board_name)
 bom = dict()
 
 # generate parts list, grouped by type and value
-for part in board.GetModules():
+for part in board.Footprints():
     reference = str( part.Reference().GetText() )
     value =  str( part.Value().GetText() )
     enclosure = str( part.GetFPID().GetLibItemName() )
