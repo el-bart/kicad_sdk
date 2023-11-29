@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* switched to use KiCad 7.0.8
 * added `export_template` script, for eas of integration
 * `*-backups` are now in `.gitignore`
 * minor bugfixes and improvements
