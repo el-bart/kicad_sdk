@@ -13,11 +13,4 @@ shift 2
 step="${stl%.stl}.step"
 
 kicad-cli pcb export step --force --output "$step" "$pcb" > "$step.log" 2>&1 || { cat "$step.log" ; exit 3 ; }
-
-if ! getent passwd "$UID" > /dev/null
-then
-  wrapper="fakeroot"
-else
-  wrapper=""
-fi
-$wrapper step2stl "$step" "$stl"
+prusa-slicer --export-stl --output "$stl" "$step" > "$stl.log" 2>&1 || { cat "$stl.log" ; exit 3 ; }

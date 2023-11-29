@@ -45,7 +45,6 @@ stl: $(OUT_DIR)/pcb.stl
 
 $(OUT_DIR)/pcb.stl: Makefile
 $(OUT_DIR)/pcb.stl: /usr/local/bin/generate_stl
-$(OUT_DIR)/pcb.stl: /usr/local/bin/step2stl
 $(OUT_DIR)/pcb.stl: $(PCB)
 	$(SILENT)echo "STL $<"
 	$(SILENT)mkdir -p "$(OUT_DIR)"

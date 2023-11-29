@@ -1,11 +1,8 @@
 FROM debian:12
 RUN apt-get update && apt-get dist-upgrade -y
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    freecad
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    fakeroot \
-    make
-RUN apt-get update && apt-get install -y --no-install-recommends \
+    make \
     gzip \
     tar \
     wget ca-certificates openssl \
@@ -25,11 +22,13 @@ RUN cd /tmp/ && \
     apt-get install -y ./*.deb && \
     rm *.deb
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    prusa-slicer
+
 COPY \
   generate_bom \
   generate_gerber \
   generate_stl \
-  step2stl \
   /usr/local/bin/
 
 ENV HOME=/tmp/
