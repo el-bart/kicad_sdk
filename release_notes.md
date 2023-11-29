@@ -8,6 +8,7 @@
 * STEP -> STL conversion is now done using PrusaSlicer, instead of FreeCAD
 * added `export_template` script, for eas of integration
 * `*-backups` are now in `.gitignore`
+* added SVG generation of shematics and each PCB layer
 * minor bugfixes and improvements
 
 ## v1.0

@@ -6,15 +6,18 @@ else
 SILENT:=@
 endif
 
+SCH:=$(wildcard *.kicad_sch) # expected to be 1 file
 PCB:=$(wildcard *.kicad_pcb) # expected to be 1 file
 OUT_DIR:=build
 GERBER_DIR:=$(OUT_DIR)/gerber
+GRAPHICS_DIR:=$(OUT_DIR)/graphics
 
 
 .PHONY: all
 all: gerber
 all: stl
 all: bom
+all: graphics
 
 
 .PHONY: gerber
@@ -35,7 +38,7 @@ $(GERBER_DIR)/version.txt: Makefile
 $(GERBER_DIR)/version.txt: $(PCB)
 	$(SILENT)echo "GERBER $(GERBER_DIR)"
 	$(SILENT)mkdir -p "$(GERBER_DIR)"
-	$(SILENT)kicad-cli pcb export gerbers --output "$(GERBER_DIR)" "$<" > "$(GERBER_DIR).log" 2>&1 || { cat "$(GERBER_DIR).log" ; exit 42 ; }
+	$(SILENT)print_on_error kicad-cli pcb export gerbers --output "$(GERBER_DIR)" "$<"
 	$(SILENT)md5sum "$<" > "$(GERBER_DIR)/version.txt"
 
 
@@ -60,6 +63,28 @@ $(OUT_DIR)/bom.csv: $(PCB)
 	$(SILENT)mkdir -p "$(OUT_DIR)"
 	$(SILENT)generate_bom "$<" "$@"
 
+
+.PHONY: graphics
+graphics: $(GRAPHICS_DIR)/sch.svg
+# TODO: pdfs
+graphics: $(GRAPHICS_DIR)/pcb.done
+
+$(GRAPHICS_DIR)/sch.svg: Makefile
+$(GRAPHICS_DIR)/sch.svg: $(SCH)
+	$(SILENT)echo "SCH SVG $<"
+	$(SILENT)mkdir -p "$(GRAPHICS_DIR)"
+	$(SILENT)print_on_error kicad-cli sch export svg --no-background-color --exclude-drawing-sheet --output "$(GRAPHICS_DIR)" "$<"
+
+$(GRAPHICS_DIR)/pcb.done: Makefile
+$(GRAPHICS_DIR)/pcb.done: /usr/local/bin/list_cu_layers
+$(GRAPHICS_DIR)/pcb.done: $(PCB)
+	$(SILENT)echo "PCB SVG $<"
+	$(SILENT)mkdir -p "$(GRAPHICS_DIR)"
+	$(SILENT)for l in $(shell list_cu_layers "$<") ; \
+			do \
+				print_on_error \
+					kicad-cli pcb export svg -l "$$l" --output "$(GRAPHICS_DIR)/pcb_$$l.svg" --exclude-drawing-sheet "$<" ; \
+			done
 
 .PHONY: clean
 clean:
