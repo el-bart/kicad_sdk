@@ -62,7 +62,7 @@ integer_digits = 3
 mantissa_digits = 3
 mirror_y_axis = False
 header = True
-offset = pcbnew.wxPoint(0,0)
+offset = pcbnew.VECTOR2I( pcbnew.wxPoint(0,0) )
 merge_pth_npth = True
 drill_file = True
 map_file = False
@@ -72,4 +72,3 @@ drill_writer.SetFormat(metric, zero_format, integer_digits, mantissa_digits)
 drill_writer.SetOptions(mirror_y_axis, header, offset, merge_pth_npth)
 drill_writer.CreateDrillandMapFilesSet(out_dir, drill_file, map_file, reporter)
 out_file = os.path.join(out_dir, project + "-" + "NPTH.drl")
-os.rename(out_dir + "/" + project + ".drl", out_file)
