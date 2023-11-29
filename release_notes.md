@@ -3,6 +3,7 @@
 ## dev
 * added `export_template` script, for eas of integration
 * `*-backups` are now in `.gitignore`
+* minor bugfixes and improvements
 
 ## v1.0
 * Docker-based SDK definition, for stability.
