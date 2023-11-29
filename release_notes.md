@@ -1,10 +1,11 @@
 # release notes
 
 ## dev
+* switched to use KiCad 7.0.8
+* moving most of the heavy-lifting to `kicad-cli` in the backend
 * added `./kicad` helper to start kicad from SDK, in GUI mode
 * `./make` wrapper now uses `./sdk` that can also start KiCad GUI
 * STEP -> STL conversion is now done using PrusaSlicer, instead of FreeCAD
-* switched to use KiCad 7.0.8
 * added `export_template` script, for eas of integration
 * `*-backups` are now in `.gitignore`
 * minor bugfixes and improvements
