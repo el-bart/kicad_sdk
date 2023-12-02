@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* ignoring `~*` backup files from KiCad 7.0
 
 ## v2.0
 * switched to use KiCad 7.0.8
