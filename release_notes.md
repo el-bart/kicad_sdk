@@ -2,6 +2,7 @@
 
 ## dev
 * ignoring `~*` backup files from KiCad 7.0
+* added `FAQ.md` with known problems and solutions
 
 ## v2.0
 * switched to use KiCad 7.0.8
