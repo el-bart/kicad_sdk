@@ -1,6 +1,8 @@
 # release notes
 
 ## dev
+
+## v2.1
 * user's "home directory" is now preserved between interactive KiCad runs for convenience (automated runs still use temp dir for reproducibility)
 * ignoring `~*` backup files from KiCad 7.0
 * added `FAQ.md` with known problems and solutions
