@@ -1,6 +1,8 @@
 # release notes
 
 ## dev
+* added drill file preview as an SVG
+* gerber now generates drill files by default, too
 
 ## v2.1
 * user's "home directory" is now preserved between interactive KiCad runs for convenience (automated runs still use temp dir for reproducibility)
