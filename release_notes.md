@@ -1,6 +1,8 @@
 # release notes
 
 ## dev
+
+## v2.2
 * using KiCad 7.0.10 now
 * BOM `instances` field is now sorted properly
 * added drill file preview as an SVG
