@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* using KiCad 7.0.10 now
 * BOM `instances` field is now sorted properly
 * added drill file preview as an SVG
 * gerber now generates drill files by default, too
