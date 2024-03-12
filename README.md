@@ -13,6 +13,8 @@ environment for [reproducible builds](https://en.wikipedia.org/wiki/Reproducible
 * generating STL 3D model files (think: 3D printing and prototyping)
 * generating [BOM](https://en.wikipedia.org/wiki/Bill_of_materials)
 * storing MD5 of a PCB file, for reference
+* `./kicad` wrapper, that runs KiCad, in SDK-provided version, in a GUI / interactive mode
+* `./sdk` wrapper, that runs command line in SDK env
 
 
 ## usage
