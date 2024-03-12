@@ -1,10 +1,10 @@
 # KiCad SDK
 
-environment for [reproducible builds](https://en.wikipedia.org/wiki/Reproducible_builds) of your PCB designs
+environment for [reproducible builds](https://en.wikipedia.org/wiki/Reproducible_builds) of your PCB designs.
 
 
 ## features
-* Docker-based SDK definition, for stability
+* `docker`-based SDK definition, for build stability over time
 * separation of created and generated files (`build/`)
 * handy `.gitignore` template
 * automatically creating gerber files:
@@ -22,8 +22,13 @@ this section covers basic usage of the template.
 
 ### creating new project
 
-copy content of `template` directory into your new project workspace.
-put all your KiCad files there.
+put all your KiCad files into a directory.
+run `./export_template path/to/your/kicad/files` to put SDK there.
+
+note that it's possible to to run export multiple times.
+this is useful when updating from older version.
+proper files will then be overwritten on the fly, to update to a given release.
+
 
 
 ### building
