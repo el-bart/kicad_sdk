@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* more ignored elements in `.gitignore`
 
 
 ## v2.3
