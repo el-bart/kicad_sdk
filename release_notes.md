@@ -1,6 +1,10 @@
 # release notes
 
 ## dev
+
+
+## v2.3.1
+* fixed download location for KiCad (permanent snapshot)
 * more ignored elements in `.gitignore`
 
 
