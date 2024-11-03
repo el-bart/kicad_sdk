@@ -1,6 +1,7 @@
 # release notes
 
 ## dev
+* ARM64 architecture support, when building container
 
 
 ## v2.3.1
