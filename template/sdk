@@ -11,6 +11,7 @@ if tty -s
 then
   docker_run_flags+=("-it")
 fi
+docker_run_flags+=("--init")
 
 if [ "${KICAD_SDK_USE_PERSISTENT_HOME:-false}" == "true" ]
 then
