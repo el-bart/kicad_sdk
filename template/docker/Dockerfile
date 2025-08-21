@@ -3,6 +3,10 @@ RUN apt-get update && apt-get dist-upgrade -y
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     kicad \
+    kicad-libraries \
+    kicad-footprints \
+    kicad-symbols \
+    kicad-templates \
     kicad-packages3d
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
