@@ -3,6 +3,9 @@
 ## dev
 * ARM64 architecture support, when building container
 
+## v2.3.2
+* added workaround for odd `fakeroot` hang, when ran under newer docker version
+
 
 ## v2.3.1
 * fixed download location for KiCad (permanent snapshot)
