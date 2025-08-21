@@ -1,9 +1,9 @@
 # release notes
 
 ## dev
+* updated tool to KiCad 9.0
+* converted base image to Debian:13
 * ARM64 architecture support, when building container
-* TODO: debian:13
-* TODO: KiCad 9.0
 
 
 ## v2.3.2
