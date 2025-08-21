@@ -2,6 +2,9 @@
 
 ## dev
 * ARM64 architecture support, when building container
+* TODO: debian:13
+* TODO: KiCad 9.0
+
 
 ## v2.3.2
 * added workaround for odd `fakeroot` hang, when ran under newer docker version
